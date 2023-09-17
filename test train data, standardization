@@ -1,0 +1,43 @@
+import pandas as pd
+
+#import the dataset 
+df=pd.read_csv("auto-mpg.csv")
+
+#show the first and last 5 columns of the dataset
+df.head()
+df.tail()
+
+#show the no. of rows and columns in the dataset
+df.shape
+
+#show the dattypes of the variables in the dataset
+df.dtypes
+
+
+X=df.iloc[:,[2,4]]
+Y=df.iloc[:, 5]
+
+X.head()
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler 
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, random_state=40)
+
+X_train.head()
+
+Scaler = StandardScaler().fit(X_train)
+
+Scaler.mean_
+
+Scaler.scale_
+
+Scaler.transform(X_train)
+
+X_train_scaled=Scaler.transform(X_train)
+
+print(X_train_scaled)
+
+print(X_train_scaled.mean(axis=0))
+
+print(X_train_scaled.std(axis=0))
