@@ -13,7 +13,7 @@ df.shape
 #show the dattypes of the variables in the dataset
 df.dtypes
 
-
+#Define Y-response variable and X-predictor variables
 X=df.iloc[:,[2,4]]
 Y=df.iloc[:, 5]
 
